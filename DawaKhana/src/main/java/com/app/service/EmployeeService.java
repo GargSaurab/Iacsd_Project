@@ -2,12 +2,12 @@ package com.app.service;
 
 import java.util.List;
 
-import com.app.entities.Employee;
+import com.app.entities.Customer;
 
 public interface EmployeeService {
  
-	List<Employee>getAllEmps();
+	List<Customer>getAllEmps();
 
-	Employee addEmpDetails(Employee newEmp);
+	Customer addEmpDetails(Customer newEmp);
 
 }

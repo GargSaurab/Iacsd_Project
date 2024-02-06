@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.entities.Employee;
+import com.app.entities.Customer;
 import com.app.service.EmployeeService;
 
 @RestController
@@ -28,12 +28,12 @@ public class EmployeeController {
 	//Method:GET
 	//resp:List<Emp>
 	@GetMapping
-	public List<Employee> listAllEmps(){
+	public List<Customer> listAllEmps(){
 		System.out.println("in list all emps");
 		return empService.getAllEmps();
 	}
 	
-	public Employee addEmpDetails(@RequestBody Employee newEmp)
+	public Customer addEmpDetails(@RequestBody Customer newEmp)
 	{
 		System.out.println("in empadd"+newEmp);
 		

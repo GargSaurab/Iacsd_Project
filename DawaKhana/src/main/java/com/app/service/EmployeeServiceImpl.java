@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.dao.EmployeeDao;
-import com.app.entities.Employee;
+import com.app.entities.Customer;
 
 @Service
 @Transactional
@@ -18,12 +18,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private EmployeeDao empDao;
 	
 	@Override
-	public List<Employee>getAllEmps(){
+	public List<Customer>getAllEmps(){
 		return empDao.findAll();
 	}
 
 	@Override
-	public Employee addEmpDetails(Employee newEmp) {
+	public Customer addEmpDetails(Customer newEmp) {
 		
 		return empDao.save(newEmp);
 	}
