@@ -15,24 +15,26 @@ import javax.persistence.MappedSuperclass;
 public class User {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id") // customizes col name
+	@Column(name = "User_Id") // customizes col name
 	private Long userId;
 	private String name;
 	private LocalDate dob;
 	private String address;
-	
+	private String email;
+	private String phnNo;
 	
 
 	public User() {
 		super();
 	}
 
-	public User(Long userId, String name, LocalDate dob, String address) {
+	public User(String name, String dob, String address,String email,String phnNo) {
 		super();
 		this.userId = userId;
 		this.name = name;
-		this.dob = dob;
+		this.dob = LocalDate.parse(dob);
 		this.address = address;
+		this.email=email;
 	}
 
 	public Long getUserId() {

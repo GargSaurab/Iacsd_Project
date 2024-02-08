@@ -29,6 +29,7 @@ public class Distributor {
 	public String salesMan;
 	@Column(name="Address",length=40)
 	public String address;
+	@Column(name="Contact_No")
 	public int cntNo;
 	
 	public Distributor(int companyId, String distributor, String companyName, String salesMan, String address,

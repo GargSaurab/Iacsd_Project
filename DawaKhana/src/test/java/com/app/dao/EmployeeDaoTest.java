@@ -20,17 +20,16 @@ import com.app.entities.Customer;
 class EmployeeDaoTest {
   //
 	@Autowired
-	private EmployeeDao empDao;
+	private CustomerDao custDao;
 	
 	@Test
 	void test() {
 		List<Customer> list = List.of(
-				new Customer("a1", "b1", "a1@gmail.com", "1234", LocalDate.parse("2020-10-20"), 34567, "Pune", "RnD"),
-				new Customer("a2", "b2", "a2@gmail.com", "2234", LocalDate.parse("2020-11-20"), 44567, "Pune", "RnD"),
-				new Customer("a3", "b3", "a3@gmail.com", "1274", LocalDate.parse("2023-10-20"), 14567, "Pune", "RnD"),
-				new Customer("a4", "b4", "a4@gmail.com", "2234", LocalDate.parse("2022-10-20"), 40567, "Mumbai","Finance"));
+				new Customer("Mohit","1999-05-05","Jharkhand","Mohit123@gmail.com","123546890"),
+				new Customer("Saurabh","1999-07-05","Haryana","Saurabh123@gmail.com","923546890")
+		);
 
-		List<Customer>list2=empDao.saveAll(list);
+		List<Customer>list2=custDao.saveAll(list);
 		assertEquals(4,list2.size());
 	}
 

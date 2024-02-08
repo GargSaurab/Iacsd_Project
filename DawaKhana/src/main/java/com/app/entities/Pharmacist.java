@@ -3,6 +3,7 @@ package com.app.entities;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -16,6 +17,7 @@ import lombok.ToString;
 @ToString
 @Table(name="pharmacyst")
 public class Pharmacist {
+@Id
 	private LocalDate doj;
 	private double salary;
 	private int enpId;
