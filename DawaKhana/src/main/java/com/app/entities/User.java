@@ -2,7 +2,6 @@ package com.app.entities;
 
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -10,8 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @MappedSuperclass // to tell hibernate following class is a
 //common super class for all other entities n DO NOT generate any tables for it .
+@Getter
+@Setter
 public class User {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,20 +25,21 @@ public class User {
 	private LocalDate dob;
 	private String address;
 	private String email;
-	private String phnNo;
+	private int phnNo;
 	
 
 	public User() {
 		super();
 	}
 
-	public User(String name, String dob, String address,String email,String phnNo) {
+	public User(String name, LocalDate dob, String address,String email,int phnNo) {
 		super();
 		this.userId = userId;
 		this.name = name;
-		this.dob = LocalDate.parse(dob);
+		this.dob = dob;
 		this.address = address;
 		this.email=email;
+		this.phnNo=phnNo;
 	}
 
 	public Long getUserId() {
@@ -69,6 +74,14 @@ public class User {
 		this.address = address;
 	}
 
+	 // Getter and setter methods for phnNo
+    public int getPhnNo() {
+        return phnNo;
+    }
+
+    public void setPhnNo(int phnNo) {
+        this.phnNo = phnNo;
+    }
 	
 
 }

@@ -141,7 +141,7 @@ public class Customer extends User {
 		super();
 	}
 	
-	public Customer(String name, String dob, String address, String email, String phnNo) {
+	public Customer(String name, LocalDate dob, String address, String email, int phnNo) {
 		super(name,dob,address,email,phnNo);
 		LastPurchaseDate = LocalDate.now();
 	}
