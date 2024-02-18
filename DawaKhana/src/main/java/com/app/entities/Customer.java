@@ -130,13 +130,8 @@ public class Customer extends User {
 //				+ joinDate + ", salary=" + salary + ", location=" + location + ", department=" + department + "]";
 //	}
 	
-	
+	@Column
 	private LocalDate LastPurchaseDate;
-	
-	
-	
-	
-	
 	
 	@Override
 	public String toString() {
@@ -145,18 +140,18 @@ public class Customer extends User {
 	public Customer() {
 		super();
 	}
-	public Customer(int custId, LocalDate lastPurchaseDate) {
-		super();
-		LastPurchaseDate = lastPurchaseDate;
+	
+	public Customer(String name, LocalDate dob, String address, String email, int phnNo) {
+		super(name,dob,address,email,phnNo);
+		LastPurchaseDate = LocalDate.now();
 	}
-	
-	
 	public LocalDate getLastPurchaseDate() {
 		return LastPurchaseDate;
 	}
 	public void setLastPurchaseDate(LocalDate lastPurchaseDate) {
 		LastPurchaseDate = lastPurchaseDate;
 	}
+
 	
 	
 	

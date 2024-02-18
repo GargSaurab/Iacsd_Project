@@ -13,26 +13,25 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
 import com.app.entities.Customer;
+import com.app.entities.Pharmacist;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace=Replace.NONE)
 @Rollback(false)
-class EmployeeDaoTest {
+class PharmacistDaoTest {
   //
 	@Autowired
-	private CustomerDao custDao;
+	private PharmacistDao pharDao;
 	
 	@Test
 	void test() {
-
-		List<Customer> list = List.of(
-				new Customer("Mohit",LocalDate.parse("1999-05-05"),"Jharkhand","Mohit123@gmail.com",123546890),
-				new Customer("Saurabh",LocalDate.parse("1999-07-05"),"Haryana","Saurabh123@gmail.com",923546890)
+		List<Pharmacist> list = List.of(
+				new Pharmacist("Mohit",LocalDate.parse("1999-05-05"),"Jharkhand","Mohit123@gmail.com",123546890,LocalDate.parse("2021-01-15"),56000.00,"emp001"),
+				new Pharmacist("Saurabh",LocalDate.parse("1999-07-05"),"Haryana","Saurabh123@gmail.com",923546890,LocalDate.parse("2021-11-25"),78000.00,"emp011")
 		);
 
-		List<Customer>list2=custDao.saveAll(list);
+		List<Pharmacist>list2=pharDao.saveAll(list);
 		assertEquals(4,list2.size());
-	
 	}
 
 }
