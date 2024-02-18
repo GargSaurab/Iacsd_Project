@@ -24,6 +24,7 @@ class EmployeeDaoTest {
 	
 	@Test
 	void test() {
+
 		List<Customer> list = List.of(
 				new Customer("Mohit",LocalDate.parse("1999-05-05"),"Jharkhand","Mohit123@gmail.com",123546890),
 				new Customer("Saurabh",LocalDate.parse("1999-07-05"),"Haryana","Saurabh123@gmail.com",923546890)
@@ -31,6 +32,7 @@ class EmployeeDaoTest {
 
 		List<Customer>list2=custDao.saveAll(list);
 		assertEquals(4,list2.size());
+	
 	}
 
 }
