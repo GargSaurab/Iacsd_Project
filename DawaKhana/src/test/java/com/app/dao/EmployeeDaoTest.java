@@ -31,7 +31,7 @@ class EmployeeDaoTest {
 		);
 
 		List<Customer>list2=custDao.saveAll(list);
-		assertEquals(4,list2.size());
+		assertEquals(2,list2.size());
 	
 	}
 

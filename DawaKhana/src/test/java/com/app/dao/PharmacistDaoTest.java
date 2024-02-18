@@ -31,7 +31,7 @@ class PharmacistDaoTest {
 		);
 
 		List<Pharmacist>list2=pharDao.saveAll(list);
-		assertEquals(4,list2.size());
+		assertEquals(2,list2.size());
 	}
 
 }

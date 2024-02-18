@@ -9,6 +9,15 @@ import java.util.Set;
 
 import javax.persistence.*;//all specs Java EE supplied
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@Entity
+@ToString
+@Table(name="customer")
 public class Customer extends User {
 	
 	@Column
