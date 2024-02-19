@@ -8,4 +8,8 @@ public interface PharmacistService {
 
 	List<PharmacistDto> getAllPharmacist();
 	
+	void addPharmacist(PharmacistDto pharmaDto);
+	
+	void updatePharmacist(PharmacistDto pharmaDto);
+	
 }

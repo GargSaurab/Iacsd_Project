@@ -10,15 +10,17 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.app.custom_Exception.ResourceNotFoundException;
 import com.app.dao.PharmacistDao;
 import com.app.dto.PharmacistDto;
+import com.app.entities.Pharmacist;
 
 @Service
 @Transactional
 public class PharmacistServiceImpl implements PharmacistService {
 	
     @Autowired
-    public PharmacistDao pharmDao;
+    public PharmacistDao pharmaDao;
     
     @Autowired
     public ModelMapper mapper;
@@ -26,10 +28,33 @@ public class PharmacistServiceImpl implements PharmacistService {
 	@Override
 	public List<PharmacistDto> getAllPharmacist() {
 		
-		return pharmDao.findAll()
+		return pharmaDao.findAll()
 				.stream()
 				.map(pharm->mapper.map(pharm, PharmacistDto.class))
 				.collect(Collectors.toList());
 	}
+	
+	@Override
+	public void addPharmacist(PharmacistDto pharmDto)
+	{
+		Pharmacist pharmaEntity=mapper.map(pharmDto,Pharmacist.class);
+		Pharmacist pharma=pharmaDao.save(pharmaEntity);
+	
+	}
+	
+	@Override
+	public void updatePharmacist(PharmacistDto pharmaDto)
+	{
+		Pharmacist pharma=pharmaDao.findById(pharmaDto.getUserId())
+				          .orElseThrow(()->new ResourceNotFoundException("Pharmacist Not Found"));
+		
+		System.out.println("Updated Pharmacist before "+pharma);
+		
+		mapper.map(pharmaDto,pharma);
+		
+		System.out.println("Updated Pharmacist after"+pharma);
+	}
+	
+	
 
 }
