@@ -57,5 +57,12 @@ public class CustomerController {
 		System.out.println("In CustomerController Update Action/Method");
 		return ResponseEntity.ok(custService.updateCustomer(custId,updateCust));
 	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> getCustomerByUserId(@PathVariable long id)
+	{
+		System.out.println("In Customer Controller GetByID action/Method");
+		return ResponseEntity.ok(custService.getByUserId(id));
+	}
 
 }

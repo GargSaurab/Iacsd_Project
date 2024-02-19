@@ -53,9 +53,12 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Customer getByCustomerId(long Id) {
-		custDao.getById(Id);
-		return null;
+	public CustomerDTO getByUserId(long Id) {
+		System.out.println("In Customer Service GetByID action/Method");
+		Customer cust=custDao.getById(Id);
+		System.out.println("In Customer Service GetByID action/Method after getting data from Dao");
+		return mapper.map(cust,CustomerDTO.class);
+		
 	}
 
 	@Override

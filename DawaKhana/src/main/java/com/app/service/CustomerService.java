@@ -14,7 +14,7 @@ public interface CustomerService {
 	
 	public ApiResponse deleteCustomer(long customerId);
 	
-	public Customer getByCustomerId(long Id);
+	public CustomerDTO getByUserId(long Id);
 	
 	public ApiResponse updateCustomer(long custId,CustomerDTO updateCust);
 
