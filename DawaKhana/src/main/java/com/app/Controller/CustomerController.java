@@ -2,14 +2,22 @@ package com.app.Controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.CustomerDTO;
 import com.app.entities.Customer;
 import com.app.service.CustomerService;
 
@@ -21,26 +29,33 @@ public class CustomerController {
 	private CustomerService custService;
 	
 	@GetMapping
-	public List<Customer> listAllCustomer()
+	public ResponseEntity<?> listAllCustomer()
 	{
 		System.out.println("In Customer List Controller Method");
-		return custService.listAllCustomers();
+		return ResponseEntity.ok(custService.listAllCustomers());
 	}
 	
 	@PostMapping("/addCustomer")
-	public boolean addCustomer(@RequestBody Customer customer)
+	public ResponseEntity<?> addCustomer(@RequestBody @Valid CustomerDTO customer)
 	{
 		System.out.println("In Add Customer Controller Method");
-		custService.addCustomer(customer);
-		return true;
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body(custService.addCustomer(customer));
 	}
 	
-	@PostMapping("/CustomerById")
-	public boolean deleteCustomer(@RequestBody long Id)
+	@DeleteMapping("/{Id}")
+	public ResponseEntity<?> deleteCustomer(@PathVariable long Id)
 	{
 		System.out.println("In Delete Customer Controller Method");
-		custService.deleteCustomer(Id);
-		return true;
+		return ResponseEntity.ok(custService.deleteCustomer(Id));
+	}
+	
+	@PutMapping("/{custId}")
+	public ResponseEntity<?> updateCustomer(@PathVariable long custId,@RequestBody CustomerDTO updateCust)
+	{
+		System.out.println("In CustomerController Update Action/Method");
+		return ResponseEntity.ok(custService.updateCustomer(custId,updateCust));
 	}
 
 }
