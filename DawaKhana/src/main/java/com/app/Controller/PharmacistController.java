@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -29,6 +30,12 @@ public class PharmacistController {
 		return ResponseEntity.ok(pharmSrv.getAllPharmacist());
 	}
 	
+	@GetMapping("/{Id}")
+	public ResponseEntity<?> getById(String Id)
+	{
+	      return ResponseEntity.ok(pharmSrv.getPharmacistById(Id));	
+	}
+	
 	@PostMapping
 	public ResponseEntity<?> AddPharmacist(@RequestBody PharmacistDto pharmaDto)
 	{
@@ -49,6 +56,12 @@ public class PharmacistController {
 		
 		return ResponseEntity
 				.status(HttpStatus.CREATED).build();
+	}
+	
+	@DeleteMapping
+	public ResponseEntity<?> deletePharmacist(@RequestBody Long Id)
+	{
+		return ResponseEntity.ok(pharmSrv.deletePharmacist(Id));
 	}
 	
 }

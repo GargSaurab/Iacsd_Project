@@ -21,8 +21,6 @@ public class Pharmacist extends User {
 	private double salary;
 	private String empId;
 	
-	
-	
 	public Pharmacist(String name, LocalDate dob, String address, String email, int phnNo,LocalDate doj, double salary, String empId) {
 		super(name,dob,address,email,phnNo);
 		this.doj = doj;
@@ -30,12 +28,16 @@ public class Pharmacist extends User {
 		this.empId = empId;
 	}
 
-
-
 	public Pharmacist() {
 		super();
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Pharmacist ["+ super.toString()+"doj=" + doj + ", salary=" + salary + ", empId=" + empId
+				+ "]";
+	}
+  
 	
 
 }

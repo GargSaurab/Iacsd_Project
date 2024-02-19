@@ -12,12 +12,20 @@ import com.app.dto.ApiResponse;
 
 @RestControllerAdvice
 public class GlobalExceptionHAndler {
+	
 	@ExceptionHandler(ResourceNotFoundException.class)
 	@ResponseStatus(value=HttpStatus.NOT_FOUND)
 	public ApiResponse handlerResourceNotFoundException(ResourceNotFoundException e){
 		System.out.println("In Resource not found exception"+e);
+		return new ApiResponse(e.getMessage());	
+	}
+	
+	@ExceptionHandler(RuntimeException.class)
+	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+	public ApiResponse handleAnyException(RuntimeException e) {
+		System.out.println("in catch-all " + e);
+		e.printStackTrace();
 		return new ApiResponse(e.getMessage());
-		
 	}
 
 }

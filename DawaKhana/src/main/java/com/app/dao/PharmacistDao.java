@@ -6,6 +6,6 @@ import com.app.entities.Pharmacist;
 
 public interface PharmacistDao extends JpaRepository<Pharmacist,Long> {
 	
-	
+	   Pharmacist findByEmpId(String Id);
 
 }
