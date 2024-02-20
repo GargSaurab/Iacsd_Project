@@ -1,0 +1,96 @@
+Document: 
+
+System Requirement Specification Document (SRS)
+Client: Customer,Pharmacist
+
+Team:
+
+Direct Customer,Pharmacist
+
+
+Objective (purpose):
+
+Dawakhana is an app made to help pharmacists run their stores smoothly. It lets them keep track of their medicines and other products, making sure they always have what they need. With Dawakhana, pharmacists can easily make bills for customers and manage their information. They can also add or remove distributors they work with and place orders for new stock. It's a simple and handy tool that makes running a pharmacy easier and more organized.
+
+Scope:
+
+Dawakhana provides a seamless platform for pharmacists to efficiently manage their pharmacies and connect with customers and distributors. Pharmacists can effortlessly organize their inventory, ensuring they have the medicines and products they need at all times. With Dawakhana, they can easily create bills for customers and maintain their profiles for personalized service. Pharmacists can also manage their relationships with distributors, adding or removing them as needed, and placing orders for new stock with ease. This user-friendly app streamlines pharmacy operations, providing 24/7 accessibility for pharmacists to optimize their business and serve their community effectively.
+
+
+Functional Requirements:
+	
+Anonymous users can browse through available medicines and past purchases. Registered users gain the ability to place orders for medicines and view their purchase history. Pharmacists can manage inventory, suppliers, and customer orders seamlessly through the app.
+
+Suppliers can easily update stock availability and pricing, ensuring pharmacists have access to the latest information. Pharmacists can review and approve supplier updates, maintaining accurate inventory records. Customers benefit from the convenience of ordering medicines online and can track the status of their orders in real-time.
+
+The app also features a review system where customers can provide feedback on medicines and overall service quality. Pharmacists can use this feedback to improve their offerings and enhance customer satisfaction.
+
+Additionally, the Dawakhana app offers comprehensive analytics and reporting tools, allowing pharmacists to track sales, inventory turnover, and customer trends. With its intuitive dashboard, the app provides valuable insights to help pharmacists make informed business decisions and optimize their operations.
+
+Overall, Dawakhana helps in the management of medicine shops, streamlining processes for pharmacists and enhancing the experience for customers.
+
+Non Functional Requirements:
+
+Security
+
+Limited Access: Only people who have signed up can use the app. Pharmacists, customers, and suppliers each have their own sections they can access.
+
+Who Can Do What: Depending on your role (like pharmacist or customer), you can only do certain things in the app. This helps keep everything organized and secure.
+
+Safe Login: Before you can use the app, you have to log in securely. This makes sure only the right people can get in and keeps your account safe.
+
+Watching for Problems: Dawakhana always keeps an eye out for any potential issues that could cause problems. We regularly check for anything that might threaten the app's security and fix it fast.
+
+Keeping Secrets Safe: Any information you send through the app or store in it is scrambled so that only authorized people can read it. This protects your private details from being seen by anyone who shouldn't.
+
+Controlled by Experts: Only certain people with special access can change how the app works or see sensitive information. This ensures that your data is in good hands and only seen by those who need to see it.
+Realiablilty
+
+The system will backup business data on a regular basis and recover in a short time to keep the system operational. Continous updates are maintained, and continuous administration is done to keep the system operational.
+
+During peak hours, the system will maintain the same user experience by managing load balancing.
+It consistently performs the given tasks without failure.  
+
+Availablity
+
+The information will be available to access and use all the time, with reliable access. Certainly, it must be true for those with access rights.
+
+
+Maintainability
+
+Software maintenance will be done when the customer demands new features and functions in the software.
+When the system's hardware is upgraded, the software is updated as well.
+A commercial database software will be used to maintain system data persistence.
+Separate environments will be maintained for system isolation in production, testing, and development.
+
+Portability
+
+The software will be easily moved from one computing environment to another. They include portable versions of regular applications such as browsers.
+The system will provide portable user interfaces (HTML, CSS, and JS) for users to access the portal.
+The system can be deployed to single or multiple servers, any operating system, and the cloud (Azure, AWS, or GCP).
+
+Durability
+
+The system will retain information about users for a relatively longer time.
+
+Modularity
+
+System will be designed and developed using reusable, independent or dependent business senarios in the form of modules. These modules will be loosely coupled and highly cohesive.
+
+Efficiency
+
+In peak hours the app will be able to handle ih shop usage as well as online customers.
+
+Scalability
+
+Regardless of load, the system will be able to provide a consistent user experience to stakeholders and online customers.
+The software will handle increased workloads while adding and removing users with minimal cost impact.
+The software supports growing amounts of data.
+
+Safety
+
+The system will enforce some rules by implementing access control rules in a central, server-side management library to decide who needs what access to which data and to which features.
+The system will be safe from malicious attacks.
+System functionalities are protected from the outside with proper firewall configuration.
+Business data will be backed up periodically to ensure the safety of the data using an incremental backup strategy.
+Role-based security will be applied for application data and operations accessibility.
