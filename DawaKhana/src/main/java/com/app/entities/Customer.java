@@ -16,34 +16,32 @@ import lombok.ToString;
 @Getter
 @Setter
 @Entity
-@ToString
 @Table(name="customer")
 public class Customer extends User {
 	
 	@Column
 	private LocalDate LastPurchaseDate;
 	
-	@Override
-	public String toString() {
-		return "LastPurchaseDate=" + LastPurchaseDate + ":";
-	}
 	public Customer() {
 		super();
 	}
 	
-	public Customer(String name, LocalDate dob, String address, String email, int phnNo) {
-		super(name,dob,address,email,phnNo);
+	public Customer(String name, LocalDate dob, String address, String email,String password, int phnNo) {
+		super(name,dob,address,email,password,phnNo);
 		LastPurchaseDate = LocalDate.now();
 	}
+	
 	public LocalDate getLastPurchaseDate() {
 		return LastPurchaseDate;
 	}
+	
 	public void setLastPurchaseDate(LocalDate lastPurchaseDate) {
 		LastPurchaseDate = lastPurchaseDate;
 	}
 
+	@Override
+	public String toString() {
+		return "LastPurchaseDate=" + LastPurchaseDate + ":";
+	}
 	
-	
-	
-
 }

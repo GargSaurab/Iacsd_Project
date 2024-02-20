@@ -64,4 +64,10 @@ public class PharmacistController {
 		return ResponseEntity.ok(pharmSrv.deletePharmacist(Id));
 	}
 	
+	@PostMapping("/auth")
+	public ResponseEntity<?> AuthenticatePharmacist(@RequestBody String empId,String password)
+	{
+		return ResponseEntity.ok(pharmSrv.getAuthenticate(empId,password));
+	}
+	
 }

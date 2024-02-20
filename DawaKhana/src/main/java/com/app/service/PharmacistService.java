@@ -16,5 +16,7 @@ public interface PharmacistService {
     ApiResponse deletePharmacist(Long Id);
     
     PharmacistDto getPharmacistById(String Id);
+    
+    Boolean getAuthenticate(String empId,String password);
 	
 }

@@ -17,7 +17,6 @@ import lombok.ToString;
 //common super class for all other entities n DO NOT generate any tables for it .
 @Getter
 @Setter
-@ToString
 public class User {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +26,7 @@ public class User {
 	private LocalDate dob;
 	private String address;
 	private String email;
+	private String password;
 	private int phnNo;
 	
 
@@ -34,13 +34,14 @@ public class User {
 		super();
 	}
 
-	public User(String name, LocalDate dob, String address,String email,int phnNo) {
+	public User(String name, LocalDate dob, String address,String email,String password,int phnNo) {
 		super();
 		this.userId = userId;
 		this.name = name;
 		this.dob = dob;
 		this.address = address;
 		this.email=email;
+		this.password=password;
 		this.phnNo=phnNo;
 	}
 
@@ -84,6 +85,13 @@ public class User {
     public void setPhnNo(int phnNo) {
         this.phnNo = phnNo;
     }
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", name=" + name + ", dob=" + dob + ", address=" + address + ", email="
+				+ email + ", phnNo=" + phnNo + "]";
+	}
 	
+    
 
 }

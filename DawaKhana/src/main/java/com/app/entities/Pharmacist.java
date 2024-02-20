@@ -14,16 +14,15 @@ import lombok.ToString;
 @Getter
 @Setter
 @Entity
-@ToString
 @Table(name="pharmacist")
 public class Pharmacist extends User {
 	private LocalDate doj;
 	private double salary;
 	private String empId;
 	
-	public Pharmacist(String name, LocalDate dob, String address, String email, int phnNo,LocalDate doj, double salary, String empId) {
-		super(name,dob,address,email,phnNo);
-		this.doj = doj;
+	public Pharmacist(String name, LocalDate dob, String address, String email,String password, int phnNo,LocalDate doj, double salary, String empId) 
+	{
+		super(name,dob,address,email,password,phnNo);
 		this.salary = salary;
 		this.empId = empId;
 	}

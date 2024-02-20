@@ -78,6 +78,21 @@ public class PharmacistServiceImpl implements PharmacistService {
 		
 		return mapper.map(pharma,PharmacistDto.class);
 	}
+
+	@Override
+	public Boolean getAuthenticate(String empId, String password) {
+	
+		Pharmacist pharma=pharmaDao.findByEmpId(empId);
+		
+		if(!pharma.equals(null))
+		{
+			if(pharma.getPassword().equals(password))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 	
 
 
