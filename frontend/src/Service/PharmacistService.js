@@ -4,7 +4,9 @@ const baseURL = "http://localhost:8080/pharmacist";
 
 const PharmacistService={
     getAuthorization:(username,password)=>{
-        return axios.post(baseURL+"/auth",username,password);
+        console.log("in service"+username,password);
+        const data={id:username,password:password};
+        return axios.post(baseURL+"/auth",data);
     },
 }
 

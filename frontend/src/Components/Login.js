@@ -2,26 +2,30 @@ import { Container } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { Link, Navigate } from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import '../Styles/LoginComponent.css'
-import { useState } from 'react';
+import { useState} from 'react';
 import PharmaService from '../Service/PharmacistService';
 import CustomerService from '../Service/CustomerService';
 
 const LoginComponent=()=> {
     const [username,setUsername]=useState('');
     const [password,setPassword]=useState('');
+    const navigate=useNavigate();
 
     const handleLogin=()=>{
          if(username.match(/^emp/))
          {
               PharmaService.getAuthorization(username,password)
               .then((result)=>{
-                if(result)
+                console.log(result);
+                if(result.data)
                 {
-                    Navigate("/pharmacist");
+                    console.log(result);
+                    navigate("/pharmacist");
                 }
                 else{
+                    
                    alert("Username or Password didn't match");
                 }
               })
@@ -33,7 +37,7 @@ const LoginComponent=()=> {
                {
                   if(result)
                   {
-                    Navigate("/customer");
+                    navigate("/customer");
                   }
                   else{
                     alert("Username or Password didn't match");

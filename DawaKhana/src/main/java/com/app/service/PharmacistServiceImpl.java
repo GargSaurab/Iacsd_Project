@@ -81,10 +81,10 @@ public class PharmacistServiceImpl implements PharmacistService {
 
 	@Override
 	public Boolean getAuthenticate(String empId, String password) {
-	
+		
 		Pharmacist pharma=pharmaDao.findByEmpId(empId);
 		
-		if(!pharma.equals(null))
+		if(pharma!=null)
 		{
 			if(pharma.getPassword().equals(password))
 			{

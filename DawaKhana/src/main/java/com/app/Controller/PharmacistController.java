@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.Authentication;
 import com.app.dto.PharmacistDto;
 import com.app.service.PharmacistService;
 
@@ -65,9 +66,19 @@ public class PharmacistController {
 	}
 	
 	@PostMapping("/auth")
-	public ResponseEntity<?> AuthenticatePharmacist(@RequestBody String empId,String password)
+	public ResponseEntity<?> AuthenticatePharmacist(@RequestBody Authentication auth)
 	{
-		return ResponseEntity.ok(pharmSrv.getAuthenticate(empId,password));
+		String id=auth.getId();
+		String pass=auth.getPassword();
+		
+		System.out.println(id);
+         System.out.println(pass);
+		
+		boolean flag=pharmSrv.getAuthenticate(id,pass);
+		
+		System.out.println(flag);
+		
+		return ResponseEntity.ok(flag);
 	}
 	
 }
