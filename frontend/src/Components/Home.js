@@ -2,7 +2,7 @@ import React from "react";
 import '../Styles/HomeComponent.css'
 import { Container } from "react-bootstrap";
 import { useEffect,useState } from "react";
-import {Row,Col,Button} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 
 export default function HomeComponent()
 {

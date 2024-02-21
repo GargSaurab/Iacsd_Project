@@ -2,12 +2,12 @@ import CustomertService from "../Service/CustomerService";
 import { useState,useEffect } from "react";
 const CustomerTable=(props)=>
 {
-    const[custarr,setCustarr]=useState([]);
+    const[medarr,setMedArr]=useState([]);
     useEffect(()=>{
-        CustomertService.listAllCustomers()
+        MedicineService.getAllMedicines()
         .then((result)=>{
             console.log(result)
-            setCustarr([...result.data]);
+            setMedArr([...result.data]);
         })
     },[])
     return(
@@ -15,18 +15,19 @@ const CustomerTable=(props)=>
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">UserID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">DOB</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone Number</th>
-                        <th scope="col">Last Purchse Date</th>
+                        <th scope="col">Medicine Id</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Expiry Date</th>
+                        <th scope="col">Manufactured Date</th>
+                        <th scope="col">M.R.P</th>
+                        <th scope="col">Original Name</th>
+                        <th scope="col">Power</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        custarr.map(p=><tr key={p.userId}>
+                        medarr.map(p=><tr key={p.medicine}>
                             <td>{p.userId}</td>
                             <td>{p.name}</td>
                             <td>{p.dob}</td>

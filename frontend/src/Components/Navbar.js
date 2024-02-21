@@ -10,7 +10,7 @@ function MainNavbar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="/home">
+        <Navbar.Brand href="/">
         <Image src="/images/DawaKhana.png" alt="DawaKhana Logo" width="50" height="50" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -20,7 +20,7 @@ function MainNavbar() {
             style={{ maxHeight: '100px', width:'100%' }}
             navbarScroll
           >
-            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#action2">Link</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>

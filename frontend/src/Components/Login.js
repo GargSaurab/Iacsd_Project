@@ -22,7 +22,7 @@ const LoginComponent=()=> {
                 if(result.data)
                 {
                     console.log(result);
-                    navigate("/pharmacist");
+                    navigate("/customer");
                 }
                 else{
                     
@@ -32,12 +32,12 @@ const LoginComponent=()=> {
          }
          else
          {
-               CustomerService.getAuthorization()
+               CustomerService.getAuthorization(username,password)
                .then((result)=>
                {
                   if(result)
                   {
-                    navigate("/customer");
+                    navigate("/custsample");
                   }
                   else{
                     alert("Username or Password didn't match");

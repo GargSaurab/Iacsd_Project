@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.Authentication;
 import com.app.dto.CustomerDTO;
 import com.app.entities.Customer;
 import com.app.service.CustomerService;
@@ -64,5 +65,22 @@ public class CustomerController {
 		System.out.println("In Customer Controller GetByID action/Method");
 		return ResponseEntity.ok(custService.getByUserId(id));
 	}
+	
+	@PostMapping("/auth")
+	public ResponseEntity<?> AuthenticatePharmacist(@RequestBody Authentication auth)
+	{
+		String id=auth.getId();
+		String pass=auth.getPassword();
+		
+		System.out.println(id);
+         System.out.println(pass);
+		
+		boolean flag=custService.getAuthenticate(id,pass);
+		
+		System.out.println(flag);
+		
+		return ResponseEntity.ok(flag);
+	}
+	
 
 }

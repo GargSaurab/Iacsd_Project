@@ -17,5 +17,7 @@ public interface CustomerService {
 	public CustomerDTO getByUserId(long Id);
 	
 	public ApiResponse updateCustomer(long custId,CustomerDTO updateCust);
+	
+	boolean getAuthenticate(String id,String pass);
 
 }
