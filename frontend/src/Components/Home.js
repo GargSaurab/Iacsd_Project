@@ -3,6 +3,7 @@ import '../Styles/HomeComponent.css'
 import { Container } from "react-bootstrap";
 import { useEffect,useState } from "react";
 import {Button} from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function HomeComponent()
 {
@@ -38,7 +39,9 @@ export default function HomeComponent()
             style={{width: '100%', height: '100vh', objectFit:'cover'}}/>
             <div className="position-absolute top-50 start-50 translate-middle">
             
-            <Button onClick={handleButtonClick}variant="primary">GET Started</Button> 
+            <Link to="/registration">
+            <Button>Register</Button>
+           </Link>
             </div>
         </Container>
     );

@@ -7,6 +7,7 @@ import Pharmacist from './Components/Pharmacist';
 import Customer from './Components/Customer';
 import CustSample from './Components/CustomerSample';
 import { Route,Routes } from 'react-router-dom';
+import Registration from './Components/Register';
 function App() {
   return (
     <div>
@@ -17,6 +18,7 @@ function App() {
        <Route path='/pharmacist' element={<Pharmacist></Pharmacist>}></Route>
        <Route path="/customer" element={<Customer></Customer>}></Route>
        <Route path='/custsample' element={<CustSample></CustSample>}></Route>
+       <Route path="/registration" element={<Registration></Registration>}></Route>
       </Routes>
     </div>
   );

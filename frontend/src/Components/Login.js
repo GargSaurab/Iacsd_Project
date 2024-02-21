@@ -80,7 +80,7 @@ const LoginComponent=()=> {
         </Col>
       </Form.Group>
       <Form.Group as={Row} className="mb-3 " controlId="formPlaintextPassword" style={{ textAlign: 'center' }}>
-      <Link to="/register" >don't have an account</Link>
+      <Link to="/registration" >don't have an account</Link>
       </Form.Group>
 
     </Form>
