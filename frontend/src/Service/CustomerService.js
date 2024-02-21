@@ -6,6 +6,10 @@ const CustomerService={
     getAuthorization:()=>{
         return axios.post(baseURL+"/auth");
     },
+
+    listAllCustomers(){
+        return axios.get(baseURL);
+    },
 }
 
 export default CustomerService;
