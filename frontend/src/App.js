@@ -6,6 +6,7 @@ import Home from './Components/Home';
 import Pharmacist from './Components/Pharmacist';
 import Customer from './Components/Customer';
 import CustSample from './Components/CustomerSample';
+import Trial from './Components/trial';
 import { Route,Routes } from 'react-router-dom';
 import Registration from './Components/Register';
 import BillComponent from './Components/BillComponent';
@@ -21,6 +22,7 @@ function App() {
        <Route path='/custsample' element={<CustSample></CustSample>}></Route>
        <Route path="/registration" element={<Registration></Registration>}></Route>
        <Route path="/bill" element={<BillComponent></BillComponent>}></Route>
+       <Route path="/trial" element={<Trial></Trial>}></Route>
       </Routes>
     </div>
   );
