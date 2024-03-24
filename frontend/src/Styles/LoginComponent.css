@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .login-page{
     background-image: url(/public/images/4853433.jpg);
     background-size: cover;
@@ -33,3 +34,11 @@
     height: auto;
     object-fit: cover;
   }
+=======
+
+.error
+{
+    color: red; /* Change the color */
+  font-size: 14px; /* Change the font size */
+}
+>>>>>>> Stashed changes

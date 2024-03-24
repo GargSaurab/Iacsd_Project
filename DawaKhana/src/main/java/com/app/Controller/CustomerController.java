@@ -67,7 +67,7 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/auth")
-	public ResponseEntity<?> AuthenticatePharmacist(@RequestBody Authentication auth)
+	public ResponseEntity<?> AuthenticateCustomer(@RequestBody Authentication auth)
 	{
 		String id=auth.getId();
 		String pass=auth.getPassword();
