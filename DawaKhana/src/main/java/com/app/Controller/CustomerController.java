@@ -69,6 +69,7 @@ public class CustomerController {
 	@PostMapping("/auth")
 	public ResponseEntity<?> AuthenticateCustomer(@RequestBody Authentication auth)
 	{
+
 		String id=auth.getId();
 		String pass=auth.getPassword();
 		

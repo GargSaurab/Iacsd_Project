@@ -6,11 +6,7 @@ import Home from './Components/Home';
 import Pharmacist from './Components/Pharmacist';
 import CustomerList from './Components/CustomerList';
 import Customer from './Components/Customer';
-<<<<<<< Updated upstream
-import CustSample from './Components/CustomerSample';
 import Trial from './Components/trial';
-=======
->>>>>>> Stashed changes
 import { Route,Routes } from 'react-router-dom';
 import Registration from './Components/Register';
 import BillComponent from './Components/BillComponent';

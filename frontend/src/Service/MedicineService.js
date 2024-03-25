@@ -1,17 +1,18 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:8080/customer";
+const baseURL = "http://localhost:8080/medicine";
 
-const CustomerService={
-    getAuthorization:(username,password)=>{
-        console.log("in service"+username,password);
-        const data={id:username,password:password};
-        return axios.post(baseURL+"/auth",data);
-    },
-    
-    listAllCustomers(){
-        return axios.get(baseURL);
-    },
+const MedicineService={
+ 
+    search:(value)=>{
+        console.log(value);
+
+        return axios.get(baseURL+"/search",{
+            params: {
+              query: value  // Sending data via params with the correct parameter name
+            }
+          })
+    }
 }
 
-export default CustomerService;
+export default MedicineService;
