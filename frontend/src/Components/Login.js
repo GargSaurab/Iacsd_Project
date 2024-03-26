@@ -71,18 +71,6 @@ const LoginComponent = () => {
   }
   setError(newErrors);
   }
-  
-  useEffect(()=>{
-    const handleKeyPress=(event)=>{
-      if(event.key==="Enter"){
-         handleLogin();
-      }
-    };
-    document.addEventListener('keydown',handleKeyPress);
-    return()=>{
-       document.removeEventListener('keydown',handleKeyPress);
-    };
-  },[]);
 
   return (
     <div className='center-screen login-page'>
@@ -113,6 +101,12 @@ const LoginComponent = () => {
                                 value={formDetails.Username}
                                 onChange={handleChange}
                                 onBlur={handleChange}
+                                onKeyDown={(event) => {
+                                  if (event.key === "Enter") {
+                                    event.preventDefault();
+                                    handleLogin();
+                                  }
+                                }}
                             />
                         </td>
                     </tr>
@@ -136,6 +130,12 @@ const LoginComponent = () => {
                                 value={formDetails.Password}
                                 onChange={handleChange}
                                 onBlur={handleChange}
+                                onKeyDown={(event) => {
+                                  if (event.key === "Enter") {
+                                    event.preventDefault();
+                                    handleLogin();
+                                  }
+                                }}
                             />
                         </td>
                     </tr>
