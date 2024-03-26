@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import {useNavigate } from 'react-router-dom';
 import '../Styles/LoginComponent.css'
-import { useState } from 'react';
+import { useState,useEffect} from 'react';
 import PharmaService from '../Service/PharmacistService';
 import CustomerService from '../Service/CustomerService';
 
@@ -71,6 +71,18 @@ const LoginComponent = () => {
   }
   setError(newErrors);
   }
+  
+  useEffect(()=>{
+    const handleKeyPress=(event)=>{
+      if(event.key==="Enter"){
+         handleLogin();
+      }
+    };
+    document.addEventListener('keydown',handleKeyPress);
+    return()=>{
+       document.removeEventListener('keydown',handleKeyPress);
+    };
+  },[]);
 
   return (
     <div className='center-screen login-page'>
@@ -130,7 +142,7 @@ const LoginComponent = () => {
 
                     <tr>
                         <td colSpan="2" align="center">
-                            <button type="button" className="btn btn-primary" onClick={handleLogin}>Login</button>
+                            <button type="button" className="loginbtn" onClick={handleLogin}>Login</button>
                         </td>
                     </tr>
 

@@ -52,7 +52,7 @@ private ModelMapper mapper;
 		Medicine medi=medicineDao.findById(id).orElseThrow(()->new ResourceNotFoundException("Medicine Id Not Found"));
 		mapper.map(medicineDTO,medi);
 		System.out.println("After Mapping");
-		return new ApiResponse("Medicine "+medicineDTO.orgName+" Updated");
+		return new ApiResponse("Medicine "+medicineDTO.originalName+" Updated");
 	}
 	@Override
 	public MedicineDTO GetByMedicineId(Integer medId) {

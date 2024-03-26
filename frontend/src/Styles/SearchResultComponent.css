@@ -1,0 +1,10 @@
+.searchResult
+{
+    padding: 5px 5px;
+    font-size:1.25rem;
+    border-radius: 10px;
+}
+
+.searchResult:hover{
+    background-color: aquamarine;
+}
