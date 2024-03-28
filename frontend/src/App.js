@@ -10,6 +10,7 @@ import Trial from './Components/trial';
 import { Route,Routes } from 'react-router-dom';
 import Registration from './Components/Register';
 import BillComponent from './Components/BillComponent';
+import MedicineCard from './Components/MedicineCardList';
 function App() {
   return (
     <div>
@@ -23,6 +24,7 @@ function App() {
        <Route path="/registration" element={<Registration></Registration>}></Route>
        <Route path="/bill" element={<BillComponent></BillComponent>}></Route>
        <Route path="/trial" element={<Trial></Trial>}></Route>
+       <Route path="/medicineCard" element={<MedicineCard></MedicineCard>}></Route>
       </Routes>
     </div>
   );
