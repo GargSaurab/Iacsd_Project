@@ -4,7 +4,7 @@ import medicineService from '../Service/MedicineService';
 import { SearchResult } from "./SearchResult";
 const searchIcon = process.env.PUBLIC_URL + '/search.svg';
 
-export default function PharmacistComponent() {
+export default function Customer() {
     const [input, setInput] = useState("");
 
     const [results, setResults] = useState([]);
@@ -44,9 +44,9 @@ export default function PharmacistComponent() {
                         onChange={(e) => handleChange(e.target.value)} />
                     <button type="button" onClick={() => { document.getElementById("searchInput").focus(); }}>Search</button>
                 </div>
-                <div className="searchResults">
+                <div className="searchResults" >
                     {results && results.map((result, id) => {
-                        return <SearchResult result={result} key={id}/>;
+                        return <SearchResult result={result} key={id} query={input}/>;
                     })}
                 </div>
             </div>

@@ -64,7 +64,7 @@ private ModelMapper mapper;
 	public List<MedicineDTO> searchMedicine(String query) {
 		System.out.println("In Medicine Service search method");
 
-		List<MedicineDTO> medicines= medicineDao.findByOriginalNameStartingWith(query)
+		List<MedicineDTO> medicines= medicineDao.search(query)
 		        .stream()
 				.map(medicine -> mapper.map(medicine,MedicineDTO.class))
 				.collect(Collectors.toList());

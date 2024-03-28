@@ -54,5 +54,13 @@ input:focus{
     border-radius: 10px;
     margin-top: 1rem;
     max-height: 300px;
-    overflow-y: auto;
+    overflow:hidden;
+}
+
+.searchResults:hover {
+    overflow-y: auto; 
+}
+
+.searchResults::-webkit-scrollbar { 
+    width: 0;  /* hides the scroll by zeroing the width of bar of the web browsers like crome,opera,safari etc.*/
 }

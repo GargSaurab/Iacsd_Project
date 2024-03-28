@@ -24,7 +24,7 @@ function App() {
        <Route path="/registration" element={<Registration></Registration>}></Route>
        <Route path="/bill" element={<BillComponent></BillComponent>}></Route>
        <Route path="/trial" element={<Trial></Trial>}></Route>
-       <Route path="/medicineCard" element={<MedicineCard></MedicineCard>}></Route>
+       <Route path="/medicineCardList" element={<MedicineCard></MedicineCard>}></Route>
       </Routes>
     </div>
   );

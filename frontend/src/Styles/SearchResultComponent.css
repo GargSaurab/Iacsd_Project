@@ -2,10 +2,20 @@
 {
     padding: 5px 5px;
     font-size: 1.25rem;
-    margin-left: 1rem;
     border-radius: 10px;
+    padding-left: 1rem;
 }
 
 .searchResult:hover{
-    background-color: aquamarine;
+    background-color: #2E8947;
 }
+
+.searchResult:hover .link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .link {
+    text-decoration: none;
+    color: inherit;
+  }
