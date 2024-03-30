@@ -1,45 +1,55 @@
-import CustomertService from "../Service/CustomerService";
-import { useState,useEffect } from "react";
-const CustomerTable=(props)=>
-{
-    const[custarr,setCustarr]=useState([]);
-    useEffect(()=>{
-        CustomertService.listAllCustomers()
-        .then((result)=>{
-            console.log(result)
-            setCustarr([...result.data]);
-        })
-    },[])
-    return(
-        <div>
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">UserID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">DOB</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone Number</th>
-                        <th scope="col">Last Purchse Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        custarr.map(p=><tr key={p.userId}>
-                            <td>{p.userId}</td>
-                            <td>{p.name}</td>
-                            <td>{p.dob}</td>
-                            <td>{p.address}</td>
-                            <td>{p.email}</td>
-                            <td>{p.phnNo}</td>
-                            <td>{p.lastPurchaseDate}</td>
-                        </tr>)
-                    }
-                </tbody>
-            </table>
+import React, { useState } from "react";
+import '../Styles/CustomerComponent.css';
+import medicineService from '../Service/MedicineService';
+import { SearchResult } from "./SearchResult";
+const searchIcon = process.env.PUBLIC_URL + '/search.svg';
+
+export default function Customer() {
+    const [input, setInput] = useState("");
+
+    const [results, setResults] = useState([]);
+
+    const handleSearch = (value) => {
+        if (value.trim() !== "") {
+            medicineService.search(value)
+                .then((response) => {
+
+                    console.log("response",response.data);
+                    setResults(response.data);
+
+                })
+        }
+
+    }
+
+    const handleChange = (value) => {
+        setInput(value);
+        if (value.trim() === "") {
+            setResults([]); 
+        } else {
+            handleSearch(value);
+        }
+    }
+
+    return (
+
+        <div className="Customer">
+            <div className="Search">
+                <div className="searchBar">
+                    <img src={searchIcon} alt="Search Icon" style={{ width: '24px', height: '24px' }} />
+                    <input type="text"
+                        placeholder="Type to search..."
+                        id="searchInput"
+                        value={input}
+                        onChange={(e) => handleChange(e.target.value)} />
+                    <button type="button" onClick={() => { document.getElementById("searchInput").focus(); }}>Search</button>
+                </div>
+                <div className="searchResults" >
+                    {results && results.map((result, id) => {
+                        return <SearchResult result={result} key={id} query={input}/>;
+                    })}
+                </div>
+            </div>
         </div>
     )
 }
-
-export default CustomerTable;

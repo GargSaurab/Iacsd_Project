@@ -12,7 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class MedicineDTO {
 	public int medicineId;
-	public String orgName;
+	public String originalName;
 	public String company;
 	public String power;
 	public LocalDate mfd;

@@ -39,7 +39,7 @@ public class PharmacistServiceImpl implements PharmacistService {
 	public void addPharmacist(PharmacistDto pharmDto)
 	{
 		Pharmacist pharmaEntity=mapper.map(pharmDto,Pharmacist.class);
-		Pharmacist pharma=pharmaDao.save(pharmaEntity);
+		pharmaDao.save(pharmaEntity);
 	}
 	
 	@Override

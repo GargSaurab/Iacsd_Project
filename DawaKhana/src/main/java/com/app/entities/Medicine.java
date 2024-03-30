@@ -25,7 +25,7 @@ public class Medicine {
 	@Column(name="Medicine")
 	public int medicineId;
 	@Column(name="Original_Name",length=40)
-	public String orgName;
+	public String originalName;
 	@Column(name="Company",length=40)
 	public String company;
 	@Column(name="Power",length=40)

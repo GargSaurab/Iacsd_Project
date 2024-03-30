@@ -19,4 +19,6 @@ public interface MedicineService {
 	
 	public MedicineDTO GetByMedicineId(Integer medId);
 
+	public List<MedicineDTO> searchMedicine(String query);
+
 }

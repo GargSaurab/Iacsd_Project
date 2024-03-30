@@ -3,9 +3,13 @@ import axios from "axios";
 const baseURL = "http://localhost:8080/customer";
 
 const CustomerService={
-    getAuthorization:(username,password)=>{
-        console.log("in service"+username,password);
-        const data={id:username,password:password};
+    getAuthorization:(formDetails)=>{
+        console.log("in service"+formDetails.Username,
+        formDetails.Password);
+        const data = {
+            id: formDetails.Username,
+            password: formDetails.Password
+        };
         return axios.post(baseURL+"/auth",data);
     },
     

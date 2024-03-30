@@ -52,7 +52,7 @@ private ModelMapper mapper;
 		Medicine medi=medicineDao.findById(id).orElseThrow(()->new ResourceNotFoundException("Medicine Id Not Found"));
 		mapper.map(medicineDTO,medi);
 		System.out.println("After Mapping");
-		return new ApiResponse("Medicine "+medicineDTO.orgName+" Updated");
+		return new ApiResponse("Medicine "+medicineDTO.originalName+" Updated");
 	}
 	@Override
 	public MedicineDTO GetByMedicineId(Integer medId) {
@@ -60,10 +60,23 @@ private ModelMapper mapper;
 		System.out.println("After getting Data");
 		return mapper.map(mediId, MedicineDTO.class);
 	}
-	
-	
-	
+	@Override
+	public List<MedicineDTO> searchMedicine(String query) {
+		System.out.println("In Medicine Service search method");
 
+		List<MedicineDTO> medicines= medicineDao.search(query)
+		        .stream()
+				.map(medicine -> mapper.map(medicine,MedicineDTO.class))
+				.collect(Collectors.toList());
+
+               System.out.println("after fetching the data from databasde");
+
+             for(MedicineDTO medicine: medicines)
+			 {System.out.println(medicine);}
+
+				return medicines;
+
+	}
 	
 
 }
