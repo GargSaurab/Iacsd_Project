@@ -70,7 +70,9 @@ const LoginComponent = ({onClose}) => {
   }
 
   return (
-    <div className='login-page backdeop-blur-sm'>
+  <>
+    <div className='modal-wrapper'></div>
+    <div className='login-page '>
      <button onClick={onClose}><X size={30}/></button>
       <table>
         <tbody>
@@ -152,6 +154,7 @@ const LoginComponent = ({onClose}) => {
         </tbody>
       </table>
     </div>
+    </>
   );
 }
 

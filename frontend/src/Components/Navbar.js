@@ -13,7 +13,7 @@ function MainNavbar() {
   const handleShowLoginModal = () => setShowLoginModal(true);
   const handleCloseLoginModal = () => setShowLoginModal(false);
   return (
-    <>
+    <div className="h-screen flex flex-col items-center gap-6 Obg-[#14161b] ■text-white">
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
           <Navbar.Brand href="/">
@@ -48,7 +48,7 @@ function MainNavbar() {
         </Container>
       </Navbar>
       {showLoginModal && <LoginModal onClose={() =>setShowLoginModal(false)}/>}
-    </>
+    </div>
   )
 }
 
