@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.dto.Authentication;
 import com.app.dto.PharmacistDto;
 import com.app.service.PharmacistService;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping("/pharmacist")
@@ -58,7 +60,7 @@ public class PharmacistController {
 		return ResponseEntity
 				.status(HttpStatus.CREATED).build();
 	}
-	
+
 	@DeleteMapping
 	public ResponseEntity<?> deletePharmacist(@RequestBody Long Id)
 	{
