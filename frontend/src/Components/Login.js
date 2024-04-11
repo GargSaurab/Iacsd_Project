@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import PharmaService from '../Service/PharmacistService';
 import CustomerService from '../Service/CustomerService';
 import ReactDOM from "react-dom";
-import { X } from 'lucide-react';
+import { X, Mail, Lock } from 'lucide-react';
 
 const LoginComponent = ({ onClose }) => {
   const [formDetails, setFormDetails] = useState(
@@ -23,7 +23,7 @@ const LoginComponent = ({ onClose }) => {
     };
   }, []);
 
-  const modalLogin=useRef();
+  const modalLogin = useRef();
 
   const handleLogin = () => {
 
@@ -79,100 +79,96 @@ const LoginComponent = ({ onClose }) => {
     setError(newErrors);
   }
 
-  const closeModal=(e)=>{
-    if(modalLogin.current === e.target)
-    {
+  const closeModal = (e) => {
+    if (modalLogin.current === e.target) {
       onClose();
     }
   }
- 
+
 
   return ReactDOM.createPortal(
-   
-      <div ref={modalLogin} onClick={closeModal} className='modal-wrapper'>
+
+    <div ref={modalLogin} onClick={closeModal} className='modal-wrapper'>
+
+      
+      
       <div className='login-page '>
-        <button onClick={onClose}><X size={30} /></button>
-        <table>
-          <tbody>
-            {/* <tr>
-                        <td colSpan="2">
-                            <img src="/images/loginSideImage.jpg" alt="Background" className='custom-image' />
-                        </td>
-                    </tr> */}
-            <tr>
-              <td>
-                <label htmlFor='Username'>Username/Email</label>
-              </td>
+      <span className='cross-icon'>
+      <button onClick={onClose} className='crossBtn'><X size={30} /></button>
+      </span>
+      {/* <div>
+        image1
+      </div> */}
+        <div className='login-box'>
+          <h2>Login</h2>
+          <div className='input-box'>
+            {errors.Username && <div className="error">{errors.Username}</div>}
+            <span className='icon'><Mail /></span>
 
-              <td>
-                {errors.Username && <div className="error">{errors.Username}</div>}
-              </td>
-            </tr>
+            <br />
+            <input
+              type='text'
+              name='Username'
+              id='Username'
+              value={formDetails.Username}
+              onChange={handleChange}
+              onBlur={handleChange}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  event.preventDefault();
+                  handleLogin();
+                }
+              }}
+              required 
+            />
+            <label >Username/Email</label>
+          </div>
 
-            <tr>
-              <td colSpan="2">
-                <input
-                  type='text'
-                  className="form-control"
-                  name='Username'
-                  id='Username'
-                  value={formDetails.Username}
-                  onChange={handleChange}
-                  onBlur={handleChange}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      event.preventDefault();
-                      handleLogin();
-                    }
-                  }}
-                />
-              </td>
-            </tr>
+          <div className='input-box'>
+            {errors.Password && <div className="error">{errors.Password}</div>}
+            <span className='icon'><Lock /></span>
+            <br />
 
-            <tr>
-              <td>
-                <label htmlFor='Password'>Password</label>
-              </td>
-              <td>
-                {errors.Password && <div className="error">{errors.Password}</div>}
-              </td>
-            </tr>
+            <input
+              type='password'
+              name='Password'
+              id='Password'
+              value={formDetails.Password}
+              onChange={handleChange}
+              onBlur={handleChange}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  event.preventDefault();
+                  handleLogin();
+                }
+              }}
+              required 
+            />
+            <label >Password</label>
+          </div>
 
-            <tr>
-              <td colSpan="2">
-                <input
-                  type='password'
-                  className="form-control"
-                  name='Password'
-                  id='Password'
-                  value={formDetails.Password}
-                  onChange={handleChange}
-                  onBlur={handleChange}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      event.preventDefault();
-                      handleLogin();
-                    }
-                  }}
-                />
-              </td>
-            </tr>
+          <div className='remember'>
+            <label htmlFor='remember'><input type='checkbox' id='remember' />Remember me</label>
+            <a href='"#"'>Forgot Password?</a>
+          </div>
 
-            <tr>
-              <td colSpan="2" align="center">
-                <button type="button" className="loginbtn" onClick={handleLogin}>Login</button>
-              </td>
-            </tr>
+          <div align="center">
+            <button type="button" className="loginbtn" onClick={handleLogin}>Login</button>
+          </div>
 
-            <tr>
-              <td colSpan="2" align="center">
-                {errors.Login && <div className="error">{errors.Login}</div>}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          <div align="center">
+            {errors.Login && <div className="error">{errors.Login}</div>}
+          </div>
+
+          <div className='login-register'>
+            <p>Don't have an account?
+              <a href='#' className='register-link'>Register</a>
+            </p>
+          </div>
+        </div>
+
       </div>
-      </div>,
+    </div>,
     document.querySelector(".myLoginPortal")
   );
 }

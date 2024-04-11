@@ -1,34 +1,128 @@
 
 
-
 .login-page
 {
- position: fixed;
+ position: relative;
   top: 50vh;
   left: 50vw;
+  width: 400px;
+  height: 400px;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border:2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.login-box
+{
+  width: 100%;
+  padding: 40px;
+}
+
+.login-box h2{
+  font-size: 2em;
+  color:#2E8947;;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.input-box
+{
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px; /* Add margin bottom to separate input boxes */
+  border-bottom: 2px solid #2E8947;
+}
+
+.input-box label
+{
+  position: absolute;
+  left: 8px;
+  bottom: 0; /* Adjust the value to position the label just above the bottom line */
+  transform:translateY(10%);
+  font-size: 1.05em;
+  color: #162938;
+  font-weight: 400;
+  pointer-events: none;
+  transition: .3s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+  transform: translateY(-100%);
+}
+
+.input-box input{
+  width: calc(100% - 40px); /* Adjust input width to leave space for icon */
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.05em;
+  font-weight: 400;
+  padding: 0 35px 0 5px
+}
+
+.input-box .icon
+{
+  position: absolute;
+  right: 8px;
+  top: 65%;
+  transform: translateY(-55%);
+  color: #2E8947 ;
+  line-height: 57px;
+}
+
+.cross-icon
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width:45px;
+    height:45px;
+    background: #2E8947;
+    font-size: 2em;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.crossBtn
+{
+  background-color: transparent;
 }
 
 .error
 {
     color: red; /* Change the color */
   font-size: 14px; /* Change the font size */
+  font-weight: 500;
 }
 
 .loginbtn
 {
-  height: 100%;
+  width: 100%;
+  height: 45px;
   padding: 0 10px; /* Adjust padding for button */
-  background-color: #2E8947; /* Example background color */
+  background-color:  #2E8947; /* Example background color */
   color: white; /* Example text color */
   border: none;
-  border-radius: 10px;
+  outline: none;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .modal-wrapper {
@@ -39,4 +133,57 @@
   top: 0;
   background-color:rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(4px);
+  }
+
+  .remember
+  {
+  
+    font-size:.9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -10px 0 10px;
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .remember input{
+    width:12px;
+    height: 12px;
+    margin-left: 0;
+  }
+
+  .remember label input{
+    accent-color: #162938;
+    margin-right: 5px;
+  }
+
+  .remember a{
+    color: #162938;
+    text-decoration: none;
+  }
+
+  .remember a:hover{
+    text-decoration: underline;
+  }
+
+  .login-register
+  {
+    font-size: .9em;
+    color:#162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 15px 0 10px;
+  }
+
+  .login-register p a
+  {
+    color:#162938;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .login-register p a:hover
+  {
+    text-decoration: underline; 
   }
