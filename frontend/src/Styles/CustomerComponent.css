@@ -54,7 +54,7 @@ input:focus{
     border-radius: 10px;
     margin-top: 1rem;
     max-height: 300px;
-    overflow:hidden;
+    overflow:auto;
 }
 
 .searchResults:hover {
