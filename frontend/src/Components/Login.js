@@ -96,15 +96,14 @@ const LoginComponent = ({ onClose }) => {
       <span className='cross-icon'>
       <button onClick={onClose} className='crossBtn'><X size={30} /></button>
       </span>
-      {/* <div>
-        image1
-      </div> */}
+      <div className='image'>
+        <img src="/images/LoginSideImage.jpg" alt="Description of the image"/>
+      </div>
         <div className='login-box'>
           <h2>Login</h2>
           <div className='input-box'>
             {errors.Username && <div className="error">{errors.Username}</div>}
-            <span className='icon'><Mail /></span>
-
+           
             <br />
             <input
               type='text'
@@ -122,11 +121,13 @@ const LoginComponent = ({ onClose }) => {
               required 
             />
             <label >Username/Email</label>
+            <span className='icon'><Mail /></span>
+
           </div>
 
           <div className='input-box'>
             {errors.Password && <div className="error">{errors.Password}</div>}
-            <span className='icon'><Lock /></span>
+           
             <br />
 
             <input
@@ -145,6 +146,7 @@ const LoginComponent = ({ onClose }) => {
               required 
             />
             <label >Password</label>
+            <span className='icon'><Lock /></span>
           </div>
 
           <div className='remember'>

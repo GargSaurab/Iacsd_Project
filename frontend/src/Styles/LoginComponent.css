@@ -5,13 +5,13 @@
  position: relative;
   top: 50vh;
   left: 50vw;
-  width: 400px;
-  height: 400px;
+  width: 1000px;
+  height: 500px;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
-  padding: 20px;
+  padding-right: 20px;
   border:2px solid rgba(255, 255, 255, 0.55);
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
@@ -19,10 +19,25 @@
   overflow: hidden;
 }
 
+.image
+{
+  width: 100%; /* Set the desired fixed width */
+  height: 100%; /* Allow the height to adjust based on the aspect ratio */
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+.image img{
+  width: 100%; /* Set the maximum width to fill the container */
+  height: 100%; /* Set the maximum height to fill the container */
+  object-fit: cover; /* Stretch the image to fit the height while preserving aspect ratio */
+}
+
 .login-box
 {
-  width: 100%;
-  padding: 40px;
+  width: 60%;
+  padding: 20px;
 }
 
 .login-box h2{
@@ -71,10 +86,9 @@
 
 .input-box .icon
 {
-  position: absolute;
+  position:absolute;
   right: 8px;
-  top: 65%;
-  transform: translateY(-55%);
+  transform: translateY(-41%);
   color: #2E8947 ;
   line-height: 57px;
 }
@@ -107,7 +121,9 @@
     color: red; /* Change the color */
   font-size: 14px; /* Change the font size */
   font-weight: 500;
+  margin-bottom: 5px;
 }
+
 
 .loginbtn
 {
