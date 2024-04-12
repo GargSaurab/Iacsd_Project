@@ -45,6 +45,7 @@ const LoginComponent = ({ onClose }) => {
           console.log(result);
           if (result.data) {
             console.log(result);
+            onClose();
             navigate("/customerlist");
           }
           else {
@@ -56,6 +57,7 @@ const LoginComponent = ({ onClose }) => {
       CustomerService.getAuthorization(formDetails)
         .then((result) => {
           if (result.data) {
+            onClose();
             navigate("/customer");
           }
           else {
@@ -81,7 +83,7 @@ const LoginComponent = ({ onClose }) => {
 
   const closeModal = (e) => {
     if (modalLogin.current === e.target) {
-      onClose();
+         onClose();
     }
   }
 
