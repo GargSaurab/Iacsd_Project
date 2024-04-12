@@ -2,9 +2,14 @@
     text-align: center;
     margin-top: 25vh;
     transform: translateY(-50%);
+   
   }
 
   h1 {
     font-size: 5em;
   }
 
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  

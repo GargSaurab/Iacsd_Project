@@ -77,7 +77,7 @@ public class CustomerServiceImpl implements CustomerService{
 		
 		if(cust!=null)
 		{
-             if(cust.getEmail().equals(id))
+             if(cust.getPassword().equals(pass))
               return true;
 		}
 		
