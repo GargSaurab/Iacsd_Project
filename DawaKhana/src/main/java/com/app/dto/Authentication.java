@@ -8,7 +8,6 @@ import lombok.Setter;
 public class Authentication {
 
 	private String id;
-	
 	private String password;
 	
 }
