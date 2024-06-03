@@ -2,6 +2,8 @@ package com.app.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,11 +27,15 @@ public class Search {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
-    @Column(name="Name", length = 40)
+
+    @Column(name="Name", length = 40, nullable = false)
     private String name;
-    @Column(name="SearchCount")
-    private int searchCount;
-    @Column(name="Type")
-    private String type;
+
+    @Column(name="SearchCount", nullable = false)
+    private int searchCount = 0;
+   
+    @Enumerated(EnumType.STRING)
+    @Column(name="Type", nullable = false)
+    private TypeEnum type;
 
 }

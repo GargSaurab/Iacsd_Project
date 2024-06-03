@@ -1,5 +1,9 @@
 package com.app.service;
 
-public class SearchService {
+import com.app.entities.TypeEnum;
+
+public interface SearchService{
+
+     void SearchEntry(String name, TypeEnum type);
 
 }

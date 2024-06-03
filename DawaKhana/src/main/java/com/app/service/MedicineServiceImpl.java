@@ -1,7 +1,6 @@
 package com.app.service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -9,21 +8,24 @@ import javax.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import com.app.custom_Exception.ResourceNotFoundException;
 import com.app.dao.MedicineDao;
 import com.app.dto.ApiResponse;
-import com.app.dto.CustomerDTO;
 import com.app.dto.MedicineDTO;
-import com.app.entities.Customer;
 import com.app.entities.Medicine;
+import com.app.entities.TypeEnum;
+
 @Service
 @Transactional
 public class MedicineServiceImpl implements MedicineService {
 	
 @Autowired	
 private MedicineDao medicineDao;
+
+@Autowired
+ private SearchService searchSrc;
+
 @Autowired
 private ModelMapper mapper;
 	@Override
@@ -36,6 +38,10 @@ private ModelMapper mapper;
 	}
 	@Override
 	public ApiResponse addMedicine(MedicineDTO medicine) {
+		
+		searchSrc.SearchEntry(medicine.getCompany(), TypeEnum.COMPANY);
+		searchSrc.SearchEntry(medicine.getOriginalName(), TypeEnum.NAME);
+
 		Medicine medicineEntity=mapper.map(medicine,Medicine.class);
 		Medicine persistantMedi=medicineDao.save(medicineEntity);
 		return new ApiResponse("Medicine added to list");

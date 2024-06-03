@@ -1,6 +1,9 @@
 package com.app.dto;
 
 import lombok.Setter;
+
+import com.app.entities.TypeEnum;
+
 import lombok.Getter;
 import lombok.ToString;
 
@@ -12,6 +15,6 @@ public class SearchDto {
     private int id;
     private String name;
     private String searchCount;
-    private String type;
+    private TypeEnum type;
 
 }
