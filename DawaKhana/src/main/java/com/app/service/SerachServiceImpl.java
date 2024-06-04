@@ -4,11 +4,11 @@ import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.app.dao.SearchDao;
-import com.app.dto.MedicineDTO;
-import com.app.dto.SearchDto;
+import com.app.entities.Search;
 import com.app.entities.TypeEnum;
 
 @Service
@@ -17,19 +17,28 @@ public class SerachServiceImpl implements SearchService{
     
     @Autowired
     private SearchDao searchDao;
-
-    @Autowired
-     private SearchDto srchDto;
     
     @Autowired
     private ModelMapper mapper;
 
     @Override
-    public void SearchEntry(MedicineDTO medicineEntity, TypeEnum type) {
+    public void addSearchEntry(String name, TypeEnum type) {
+
+         Search search = new Search();
         
-         srchDto.setName(medicineEntity.getCompany());
-         
-    
+         search.setName(name);
+         search.setType(type);
+        
+        try
+         {
+            searchDao.save(search);
+            System.out.println("Data entered in search");
+         }
+         catch(DataIntegrityViolationException  ex)
+         {
+            System.out.println("Duplicate Entry");
+         }
+        
     }
 
 }

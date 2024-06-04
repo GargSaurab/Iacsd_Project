@@ -38,12 +38,13 @@ private ModelMapper mapper;
 	}
 	@Override
 	public ApiResponse addMedicine(MedicineDTO medicine) {
-		
-		searchSrc.SearchEntry(medicine.getCompany(), TypeEnum.COMPANY);
-		searchSrc.SearchEntry(medicine.getOriginalName(), TypeEnum.NAME);
-
+	
 		Medicine medicineEntity=mapper.map(medicine,Medicine.class);
 		Medicine persistantMedi=medicineDao.save(medicineEntity);
+
+        searchSrc.addSearchEntry(medicine.getCompany(), TypeEnum.COMPANY);
+		searchSrc.addSearchEntry(medicine.getOriginalName() + medicine.getPower(), TypeEnum.NAME);
+
 		return new ApiResponse("Medicine added to list");
 	}
 	

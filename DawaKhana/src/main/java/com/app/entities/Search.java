@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @ToString
 @Table(name = "Search" ,
-uniqueConstraints = @UniqueConstraint(columnNames={"Name"}))
+uniqueConstraints = @UniqueConstraint(columnNames={"Name","Type"}))
 public class Search {
     
     @Id

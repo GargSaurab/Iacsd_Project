@@ -4,6 +4,6 @@ import com.app.entities.TypeEnum;
 
 public interface SearchService{
 
-     void SearchEntry(String name, TypeEnum type);
+     void addSearchEntry(String name, TypeEnum type);
 
 }
