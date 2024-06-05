@@ -43,7 +43,7 @@ private ModelMapper mapper;
 		Medicine persistantMedi=medicineDao.save(medicineEntity);
 
         searchSrc.addSearchEntry(medicine.getCompany(), TypeEnum.COMPANY);
-		searchSrc.addSearchEntry(medicine.getOriginalName() + medicine.getPower(), TypeEnum.NAME);
+		searchSrc.addSearchEntry(medicine.getOriginalName() + " " + medicine.getPower(), TypeEnum.NAME);
 
 		return new ApiResponse("Medicine added to list");
 	}
