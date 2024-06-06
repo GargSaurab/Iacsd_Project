@@ -58,7 +58,7 @@ const LoginComponent = ({ onClose }) => {
         .then((result) => {
           if (result.data) {
             onClose();
-            navigate("/customer");
+            navigate("/search");
           }
           else {
             setError({ ...errors, Login: "Username or Password didn't match" });
@@ -99,7 +99,7 @@ const LoginComponent = ({ onClose }) => {
       <button onClick={onClose} className='crossBtn'><X size={30} /></button>
       </span>
       <div className='image'>
-        <img src="/images/LoginSideImage.jpg" alt="Description of the image"/>
+        <img src="/images/LoginSideImage.jpg" alt="Dawakhana medicine shop"/>
       </div>
         <div className='login-box'>
           <h2>Login</h2>

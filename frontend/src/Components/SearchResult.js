@@ -6,7 +6,7 @@ export const SearchResult = ({result}) => {
   return(
 
     <div className='searchResult'>
-      <a href="/medicineCardList" className='link'>{result.originalName} {result.power}</a>
+      <a href="/medicineCardList" className='link'>{result.name}</a>
     </div>
   
         );

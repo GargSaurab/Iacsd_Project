@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import '../Styles/CustomerComponent.css';
-import medicineService from '../Service/MedicineService';
+import '../Styles/SearchComponent.css';
+import searchService from '../Service/SearchService';
 import { SearchResult } from "./SearchResult";
 const searchIcon = process.env.PUBLIC_URL + '/search.svg';
 
-export default function Customer() {
+export default function Search() {
     const [input, setInput] = useState("");
 
     const [results, setResults] = useState([]);
 
     const handleSearch = (value) => {
         if (value.trim() !== "") {
-            medicineService.search(value)
+            searchService.search(value)
                 .then((response) => {
 
                     console.log("response",response.data);
@@ -33,7 +33,7 @@ export default function Customer() {
 
     return (
 
-        <div className="Customer">
+        <div >
             <div className="Search">
                 <div className="searchBar">
                     <img src={searchIcon} alt="Search Icon" style={{ width: '24px', height: '24px' }} />
