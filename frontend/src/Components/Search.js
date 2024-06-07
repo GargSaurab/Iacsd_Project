@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import '../Styles/SearchComponent.css';
 import searchService from '../Service/SearchService';
+import '../Styles/SearchComponent.css';
 import { SearchResult } from "./SearchResult";
 const searchIcon = process.env.PUBLIC_URL + '/search.svg';
 
@@ -18,6 +18,10 @@ export default function Search() {
                     setResults(response.data);
 
                 })
+                .catch((error) => {
+                    console.error("Error fetching search results:", error);
+                    setResults([]); // Handle error by setting results to empty array
+                });
         }
 
     }
