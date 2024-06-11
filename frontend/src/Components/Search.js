@@ -14,7 +14,7 @@ export default function Search() {
             searchService.search(value)
                 .then((response) => {
 
-                    console.log("response",response.data);
+                    console.log("response", response.data);
                     setResults(response.data);
 
                 })
@@ -29,7 +29,7 @@ export default function Search() {
     const handleChange = (value) => {
         setInput(value);
         if (value.trim() === "") {
-            setResults([]); 
+            setResults([]);
         } else {
             handleSearch(value);
         }
@@ -45,13 +45,19 @@ export default function Search() {
                         placeholder="Type to search..."
                         id="searchInput"
                         value={input}
-                        onChange={(e) => handleChange(e.target.value)} />
+                        onChange={(e) => handleChange(e.target.value)} /> { /*contnously calls the handleChange method as input changes*/}
+
+                    {/* take the cursor on the search bar */}
                     <button type="button" onClick={() => { document.getElementById("searchInput").focus(); }}>Search</button>
                 </div>
                 <div className="searchResults" >
-                    {results && results.map((result, id) => {
-                        return <SearchResult result={result} key={id} query={input}/>;
-                    })}
+                    {results && results.length > 0 ? (
+                        results.map((result, id) => {
+                        return <SearchResult result={result} key={id} query={input} />;
+                    })
+                ):(
+                   input.trim() !== "" && <div className="NoResult"> no match found</div>
+                )}
                 </div>
             </div>
         </div>

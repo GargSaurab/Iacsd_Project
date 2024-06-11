@@ -64,3 +64,13 @@ input:focus{
 .searchResults::-webkit-scrollbar { 
     width: 0;  /* hides the scroll by zeroing the width of bar of the web browsers like crome,opera,safari etc.*/
 }
+
+.NoResult
+{
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2em;
+    color:#2E8947;
+    text-align: center;
+    letter-spacing: 1px;
+    padding: 2px;
+}

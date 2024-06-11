@@ -38,6 +38,7 @@ public class SerachServiceImpl implements SearchService {
          System.out.println("Data entered in search");
       } catch (DataIntegrityViolationException ex) {
          System.out.println("Duplicate Entry");
+         throw ex;
       }
 
    }
