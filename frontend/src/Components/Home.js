@@ -1,5 +1,6 @@
 import React from "react";
 import '../Styles/HomeComponent.css'
+import MainNavbar from "./Navbar";
 import { Container } from "react-bootstrap";
 import { useEffect,useState } from "react";
 import {Button} from "react-bootstrap";
@@ -31,6 +32,7 @@ export default function HomeComponent()
     
     return (
         <Container fluid className="p-0">
+            <MainNavbar></MainNavbar>
             <h1 className="text-center text-write">Welcome TO DawaKhana</h1>
             <img
             src={pictures[currentPictureIndex].src}

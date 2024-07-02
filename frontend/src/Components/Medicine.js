@@ -1,4 +1,4 @@
-import CustomertService from "../Service/CustomerService";
+import MedicineService from "../Service/MedicineService";
 import { useState,useEffect } from "react";
 const CustomerTable=(props)=>
 {

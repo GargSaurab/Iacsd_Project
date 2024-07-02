@@ -56,7 +56,9 @@ export default function Search() {
                         return <SearchResult result={result} key={id} query={input} />;
                     })
                 ):(
-                   input.trim() !== "" && <div className="NoResult"> no match found</div>
+                   input.trim() !== "" && <div className="NoResult"> no match
+                   
+                    found</div>
                 )}
                 </div>
             </div>
