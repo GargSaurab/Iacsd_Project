@@ -1,8 +1,15 @@
 import React from "react";
 import "../Styles/NavbarComponent.css";
-import { Image, Button } from "react-bootstrap";
+import { Image } from "react-bootstrap";
+import { useState } from "react";
+import LoginModal from "./Login";
 
-function navbar() {
+function Navbar() {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const handleShowLoginModal = () => setShowLoginModal(true);
+  const handleCloseLoginModal = () => setShowLoginModal(false);
+
   return (
     <div className="nav">
       <div className="navLeft">
@@ -15,18 +22,21 @@ function navbar() {
       </div>
 
       <div className="navRight">
-        <div className="signIn">
-        <Image src="/images/Avatar.svg" alt="Login button" />
-         Hello! Sign In
-        </div>   
+        <div className="signIn" onClick={() => setShowLoginModal(true)}>
+          <Image src="/images/Avatar.svg" alt="Login button" />
+          Hello! Sign In
+        </div>
 
         <div className="cart">
           <Image src="/images/ShopingCart.svg" alt="Login button" />
           <span>Cart</span>
         </div>
       </div>
+      {showLoginModal && (
+        <LoginModal onClose={() => setShowLoginModal(false)} />
+      )}
     </div>
   );
 }
 
-export default navbar;
+export default Navbar;

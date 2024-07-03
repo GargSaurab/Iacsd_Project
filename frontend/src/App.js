@@ -9,7 +9,7 @@ import Trial from './Components/trial';
 import Registration from './Components/Register';
 import BillComponent from './Components/BillComponent';
 import MedicineCard from './Components/MedicineCardList';
-import Navbar from './Components/NavBar2'
+import HomePage from './Components/Homepage';
 import { Route, Routes } from 'react-router-dom';
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path="/bill" element={<BillComponent/>}></Route>
         <Route path="/trial" element={<Trial/>}></Route>
         <Route path="/medicineCardList" element={<MedicineCard/>}></Route>
-        <Route path="/nav" element={<Navbar/>}></Route>
+        <Route path="/home" element={<HomePage/>}></Route>
       </Routes>
     </div>
   );

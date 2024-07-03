@@ -11,12 +11,18 @@
   margin: 10px;
   color: #11dc47;
   font-weight: 600;
+  font-size: large;
 }
 
 .navRight {
   display: flex;
   margin-right: 50px;
   gap: 30px;
+}
+
+.navLeft div:hover{
+  font-size:larger;
+  cursor: pointer;
 }
 
 .signIn {
@@ -28,6 +34,7 @@
   font-weight: 500;
   border-radius: 5px;
   padding: 5px;
+  cursor: pointer;
 }
 
 .cart {
